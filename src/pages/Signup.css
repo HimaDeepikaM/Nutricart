@@ -1,0 +1,104 @@
+/* Full Page Background Image */
+
+/* Style for "Create an Account" heading */
+.signup-content h2 {
+    font-size: 28px; /* Adjust size */
+    font-weight: bold;
+    color: #2c6716; /* Dark green color */
+    text-align: left;
+    margin-bottom: 10px; /* Add spacing below */
+    letter-spacing: 1px; /* Better readability */
+  }
+  
+.signup-container {
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/signup.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Keeps content on the right */
+    padding-right: 10%; /* Moves content a little to the left */
+  }
+  
+  /* Overlay Text Content on the Background */
+  .signup-content {
+    color: black;
+    max-width: 400px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transform: translateX(-150px); /* Moves content 50px to the left */
+  }
+  
+  /* Input Fields */
+  .signup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    color: black;
+  }
+  
+  /* Password Validation Error */
+  .password-error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    margin-top: -5px;
+  }
+  
+  /* Input Groups for Allergens & Diet Plans */
+  .input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .input-group input {
+    flex: 1;
+  }
+  
+  .input-group button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #2c6716;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .input-group button:hover {
+    background-color: #1f4b10;
+  }
+  
+  /* Create Account Button */
+  .create-account-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #2c6716;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .create-account-btn:hover {
+    background-color: #1f4b10;
+  }
+  
+  /* Link Styling */
+  .login-link {
+    color: Black;
+    text-decoration:underline ;
+  }
+  
