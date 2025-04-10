@@ -7,23 +7,29 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Handle login submission
   const handleLogin = (e) => {
     e.preventDefault();
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const matchedUser = users.find((user) => user.email === email && user.password === password);
 
-    // Get stored user data
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
+    if (!matchedUser) {
       alert("Invalid credentials. Please try again.");
       return;
     }
 
-    // Store login status
     localStorage.setItem("isAuthenticated", "true");
-
-    alert("Login successful!");
+    alert(`Welcome, ${matchedUser.name}!`);
     navigate("/dashboard");
+  };
+
+  const handleForgotPassword = () => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find((u) => u.email === email);
+    if (user) {
+      alert(`Password for ${email} is: ${user.password}`);
+    } else {
+      alert("No account found with that email.");
+    }
   };
 
   return (
@@ -31,11 +37,10 @@ function Login() {
       <div className="signup-content">
         <h2>Login</h2>
         <p>Don't have an account? <Link to="/signup" className="login-link">Sign up</Link></p>
-
         <form onSubmit={handleLogin}>
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
+          <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+          <p className="forgot-password" onClick={handleForgotPassword}>Forgot Password?</p>
           <button type="submit" className="create-account-btn">Login</button>
         </form>
       </div>

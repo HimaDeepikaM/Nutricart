@@ -1,37 +1,39 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "./Dashboard.css";
 
-function Dashboard() {
-  const navigate = useNavigate();
+const tabs = ["Grocery", "Recipes", "Favorites", "Orders", "Cart", "Delivery"];
 
-  useEffect(() => {
-    // Check if user is authenticated
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    if (!isAuthenticated) {
-      alert("Please login first.");
-      navigate("/login");
-    }
-  }, [navigate]);
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState("Grocery");
 
   return (
-    <div className="signup-container">
-      <div className="signup-content">
-        <h2>Welcome to Your Dashboard</h2>
-        <p>This is a protected page. Only logged-in users can see this.</p>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1>My Dashboard</h1>
+        <div className="search-box">
+          <input type="text" placeholder="Search..." />
+        
+        </div>
+      </header>
 
-        <button
-          className="create-account-btn"
-          onClick={() => {
-            localStorage.removeItem("isAuthenticated");
-            alert("Logged out successfully!");
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
-      </div>
+      <nav className="dashboard-tabs">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            className={activeTab === tab ? "active" : ""}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
+      </nav>
+
+      <section className="dashboard-content">
+        <h2>{activeTab}</h2>
+        <p>This is the {activeTab} section.</p>
+      </section>
     </div>
   );
-}
+};
 
 export default Dashboard;
