@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signup.css"; 
+import "./Signup.css";
 
 function Signup() {
   const navigate = useNavigate();
@@ -10,48 +10,40 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  // Function to validate password
   const validatePassword = (password) => {
-    const minLength = password.length >= 8;
-    const hasUpperCase = /[A-Z]/.test(password);
-    const hasLowerCase = /[a-z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[\W_]/.test(password);
-
-    if (!minLength) return "Password must be at least 8 characters long.";
-    if (!hasUpperCase) return "Password must contain at least one uppercase letter.";
-    if (!hasLowerCase) return "Password must contain at least one lowercase letter.";
-    if (!hasNumber) return "Password must contain at least one number.";
-    if (!hasSpecialChar) return "Password must contain at least one special character.";
+    if (password.length < 8) return "Password must be at least 8 characters long.";
+    if (!/[A-Z]/.test(password)) return "Password must have an uppercase letter.";
+    if (!/[a-z]/.test(password)) return "Password must have a lowercase letter.";
+    if (!/\d/.test(password)) return "Password must contain a number.";
+    if (!/[\W_]/.test(password)) return "Password must contain a special character.";
     return "";
   };
 
-  // Handle password input change
-  const handlePasswordChange = (e) => {
-    const newPassword = e.target.value;
-    setPassword(newPassword);
-    setPasswordError(validatePassword(newPassword));
-  };
-
-  // Handle signup submission
   const handleSignup = (e) => {
     e.preventDefault();
+    const error = validatePassword(password);
+    if (error) {
+      setPasswordError(error);
+      return;
+    }
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setPasswordError("Passwords do not match.");
       return;
     }
 
-    if (passwordError) {
-      alert("Please enter a valid password.");
+    const newUser = { name, email, password };
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const alreadyExists = existingUsers.find((user) => user.email === email);
+
+    if (alreadyExists) {
+      alert("User already exists with this email.");
       return;
     }
 
-    // Save credentials in Local Storage
-    const user = { name, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
-
-    alert("Signup successful! Please login.");
+    existingUsers.push(newUser);
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+    alert("Signup successful!");
     navigate("/login");
   };
 
@@ -59,22 +51,15 @@ function Signup() {
     <div className="signup-container">
       <div className="signup-content">
         <h2>Create an Account</h2>
-        <p>
-          Already have an account? <Link to="/login" className="login-link">Login</Link>
-        </p>
-
         <form onSubmit={handleSignup}>
-          <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-
-          {/* Password Input with Validation */}
-          <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required />
+          <input type="text" placeholder="Name" required onChange={(e) => setName(e.target.value)} />
+          <input type="email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
+          <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" placeholder="Confirm Password" required onChange={(e) => setConfirmPassword(e.target.value)} />
           {passwordError && <p className="password-error">{passwordError}</p>}
-
-          <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-
-          <button type="submit" className="create-account-btn">Create Account</button>
+          <button type="submit" className="create-account-btn">Sign Up</button>
         </form>
+        <p>Already have an account? <Link to="/login" className="login-link">Login</Link></p>
       </div>
     </div>
   );

@@ -101,4 +101,15 @@
     color: Black;
     text-decoration:underline ;
   }
+
+  .forgot-password {
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #2c6716;
+    text-decoration: underline;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
   
