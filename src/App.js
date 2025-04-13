@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Checkout from "./pages/Checkout";
+import Recipe from "./pages/Recipe";
 import PREVIEW from "./pages/TEMP_RecipePreview";
 import "./styles.css";
 
@@ -23,7 +24,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/preview_recipe" element={<PREVIEW />} />
+          <Route path="/preview_recipe" element={<PREVIEW />} /> {/* TODO - DELETE Reference ONLY */ }
+          {/* Dynamic Routing for Recipe using id */}
+          <Route path="/recipe/:title" element={<Recipe />} />
           <Route path="*" element={<ErrorPage />}/>
         </Route>
       </Routes>
