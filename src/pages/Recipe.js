@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useNutriCartContext } from "../context/NutriCartContext"; // Import your context
 import ErrorPage from "./ErrorPage";
+import IntegerInput from "../components/IntegerInput";
 
 const Recipe = () => {
   const { title } = useParams(); // Access the recipe Title from the URL
@@ -49,16 +50,30 @@ const Recipe = () => {
 
   return (
     <div>
-      {/* <h2>{recipe.Title}</h2> */}
-      <img src={recipe["Image URL"]} alt={recipe.Title} />
-      <span>{recipe.Description}</span>
-
-      <h3>Ingredients</h3>
-      <ul>
-        {recipe.Ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-      </ul>
+      <div className="details-header">
+        <img src={recipe["Image URL"]} alt={recipe.Title} className="details-image"/>
+        <div className="details-details">
+          <h2>{recipe.Title}</h2>
+          <span>{recipe.Description}</span>
+          <span>Serving Size: {recipe.Nutrition["Servings Per Recipe"]}</span>
+          <span>Calories Per Serving: {recipe.Nutrition["Calories"]}</span>
+        </div>
+        <div className="details-cart">
+          <span>${recipe.Price}</span>
+          <span>${recipe.Price / recipe.Nutrition["Servings Per Recipe"]}</span>
+          <IntegerInput />
+          <button className="button-sub">Remove Some Ingredients</button>
+          <button className="button">Add To Cart</button>
+        </div>
+      </div>
+      <div className="details-ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          {recipe.Ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+        </ul>
+      </div>
 
       <div>
         <h3>Nutrition Information</h3>
