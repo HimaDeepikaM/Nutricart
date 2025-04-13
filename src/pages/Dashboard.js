@@ -14,8 +14,8 @@ function Dashboard() {
   }, [navigate]);
 
   return (
-    <div className="signup-container">
-      <div className="signup-content">
+    <div>
+      <div>
         <h2>Welcome to Your Dashboard</h2>
         <p>This is a protected page. Only logged-in users can see this.</p>
 
