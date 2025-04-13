@@ -10,7 +10,9 @@ function Layout() {
   return (
     <div>
       <header>
-        <img src={logo} alt="Logo" className="logo" />
+        <Link to="/dashboard">
+            <img src={logo} alt="Logo" className="logo" />
+        </Link>
         <nav className="main-nav">
           <ul >
             <li>
