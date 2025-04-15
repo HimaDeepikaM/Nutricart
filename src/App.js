@@ -13,6 +13,7 @@ import Recipe from "./pages/Recipe";
 import Cart from "./pages/Cart";
 import Grocery from "./pages/Grocery";
 import PREVIEW from "./pages/TEMP_RecipePreview";
+import Profile from "./pages/Profile";
 import "./styles.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/preview_recipe" element={<PREVIEW />} /> {/* TODO - DELETE Reference ONLY */ }
           <Route path="/cart" element={<Cart />} />
           <Route path="/grocery" element={<Grocery />} />
+          <Route path="/profile" element={<Profile />} />
           {/* Dynamic Routing for Recipe using id */}
           <Route path="/recipe/:title" element={<Recipe />} />
           <Route path="*" element={<ErrorPage />}/>

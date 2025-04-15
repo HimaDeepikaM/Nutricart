@@ -16,6 +16,8 @@ export const NutriCartProvider = ({ children }) => {
   const [allergens, setAllergens] = useState(["chicken"]);
   const [allegenMarkedRecipes, setAllegenMarkedRecipes] = useState([]);
 
+  const [user, setUser] = useState(null);
+  
   useEffect(() => {
     // Read in recipes from json
     setRecipes(recipesData);
@@ -157,6 +159,18 @@ export const NutriCartProvider = ({ children }) => {
 
 
 
+  // AUTHENTICATION ------------------------------------------------------------------
+  const login = (userData) => {
+    setUser(userData);
+  };
+
+  const logout = () => {
+    setUser(null);
+    setCartItems([]);
+    setFavorites([]);
+  };
+
+
   return (
     <NutriCartContext.Provider
       value={{
@@ -171,6 +185,10 @@ export const NutriCartProvider = ({ children }) => {
         addToAllergens,
         removeFromAllergens,
         recipes,
+        user,
+        setUser,
+        login,
+        logout,
       }}
     >
       {children}

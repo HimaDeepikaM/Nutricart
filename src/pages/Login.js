@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useNutriCartContext } from "../context/NutriCartContext";
 import "./Signup.css";
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useNutriCartContext(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,6 +20,15 @@ function Login() {
     }
 
     localStorage.setItem("isAuthenticated", "true");
+
+    // Save full user info
+    login({
+      username: matchedUser.name,
+      email: matchedUser.email,
+      joinedDate: matchedUser.joinedDate || new Date().toISOString(), 
+      password: matchedUser.password
+    });
+
     alert(`Welcome, ${matchedUser.name}!`);
     navigate("/dashboard");
   };
@@ -38,8 +49,20 @@ function Login() {
         <h2>Login</h2>
         <p>Don't have an account? <Link to="/signup" className="login-link">Sign up</Link></p>
         <form onSubmit={handleLogin}>
-          <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+          <input 
+            type="email" 
+            placeholder="Email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Password" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
           <p className="forgot-password" onClick={handleForgotPassword}>Forgot Password?</p>
           <button type="submit" className="create-account-btn">Login</button>
         </form>
