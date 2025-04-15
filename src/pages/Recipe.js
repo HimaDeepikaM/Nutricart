@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useNutriCartContext } from "../context/NutriCartContext"; // Import your context
+import { useNutriCartContext } from "../context/NutriCartContext";
 import ErrorPage from "./ErrorPage";
 import IntegerInput from "../components/IntegerInput";
+import PieChart from "../components/PieChart";
+import { FaArrowLeft, FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const Recipe = () => {
+  // IntegerInput
+  const [numSelected, setNumSelected] = useState(1);
+  const handleIntegerChange = (newValue) => {
+    setNumSelected(newValue);
+  }
+
   const { title } = useParams(); // Access the recipe Title from the URL
   const { recipes } = useNutriCartContext(); // Get the recipes from the context
 
@@ -13,7 +21,6 @@ const Recipe = () => {
 
   // Find the recipe by Title
   const recipe = recipes.find((recipe) => recipe.Title.toLowerCase() === formattedTitle.toLowerCase());
-  console.log(recipe);
 
   if (!recipe) {
     // Direct to Error Page
@@ -23,67 +30,82 @@ const Recipe = () => {
   }
 
    // Function to handle the display of the nutrition value
-   const formatNutritionValue = (value) => {
-    if (typeof value === 'string') {
-      // Check if the value contains both a numeric part and a percentage part
-      const numericMatch = value.match(/[\d\.]+(?:g|mg|%)/g); // Match the numeric part with units (g, mg, %)
-      const percentageMatch = value.match(/\d+%/); // Match percentage part (e.g., 39%)
-      if (numericMatch && percentageMatch) {
-        return (
-          <div>
-            <span>{numericMatch[0]}</span>
-            <span> ({percentageMatch[0]})</span>
-          </ div>
-        );
-      }
-      // If only a numeric part exists (like '30g', '50mg', etc.)
-      if (numericMatch) {
-        return <span>{numericMatch[0]}</span>;
-      }
-      // If only a percentage exists
-      if (percentageMatch) {
-        return <span>{percentageMatch[0]}</span>;
-      }
+   const formatNutritionValue = (value, key) => {
+    if (Array.isArray(value)) {
+      return (
+        <div className="details-nutrition">
+          <div className="details-nutrition-inner">
+            <span>{key}</span>
+            <span className="details-nutrition-g">{value[0]}</span>
+          </div>
+          <span>{value[1]}</span>
+        </div>
+      )
     }
-    return <span>{value}</span>; // For other values
+    return (
+      <div className="details-nutrition">
+        <span>{key}</span>
+        <span>{value[1]}</span>
+      </div>
+    );
   };
+
+  const nutritional_pi = [recipe.Nutrition["Total Carbohydrate"][0].replace(/\D/, ''), recipe.Nutrition["Total Fat"][0].replace(/\D/, ''), recipe.Nutrition["Protein"][0].replace(/\D/, ''), recipe.Nutrition["Dietary Fiber"][0].replace(/\D/, '')];
 
   return (
     <div>
+      <button onClick={() => window.history.back()} className="details-back">
+        <FaArrowLeft size={24} />
+      </button>
       <div className="details-header">
         <img src={recipe["Image URL"]} alt={recipe.Title} className="details-image"/>
-        <div className="details-details">
+        <div className="details-info">
           <h2>{recipe.Title}</h2>
           <span>{recipe.Description}</span>
           <span>Serving Size: {recipe.Nutrition["Servings Per Recipe"]}</span>
           <span>Calories Per Serving: {recipe.Nutrition["Calories"]}</span>
         </div>
-        <div className="details-cart">
-          <span>${recipe.Price}</span>
-          <span>${recipe.Price / recipe.Nutrition["Servings Per Recipe"]}</span>
-          <IntegerInput />
-          <button className="button-sub">Remove Some Ingredients</button>
-          <button className="button">Add To Cart</button>
+        <div>
+          <div className="details-cart">
+            <span>Total: ${recipe.Price * numSelected}</span>
+            <span>Per Serving: ${recipe.Price / recipe.Nutrition["Servings Per Recipe"]}</span>
+            <IntegerInput value={numSelected} onValueChange={handleIntegerChange}/>
+            <button className="button-sub">Remove Some Ingredients</button>
+            <button className="button">Add To Cart</button>
+          </div>
+          <button onClick={() => alert("Recipe Saved To Favorites!")} className="details-heart">
+            <FaHeart size={24} color="red" />
+          </button>
         </div>
       </div>
-      <div className="details-ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          {recipe.Ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
-      </div>
 
-      <div>
-        <h3>Nutrition Information</h3>
-        {Object.entries(recipe.Nutrition).map(([key, value]) => (
-        <span key={key}>
-          {key}: {formatNutritionValue(value)}
-        </span>
-      ))}
-    </div>
-    </div>
+      <div className="details-nutrit-sec">
+        <div>
+          <div className="details-details">
+            <h3 className="details-title-sub">Ingredients</h3>
+            {recipe.Ingredients.map((ingredient, index) => (
+              <div>
+                {ingredient.map((subIngredient, index2) => (
+                  <span>{subIngredient} </span>
+                ))}
+              </ div>
+            ))}
+          </div>
+
+            <div className="details-details">
+              <h3 className="details-title-sub">Nutrition Information</h3>
+              {Object.entries(recipe.Nutrition).map(([key, value]) => (
+                <div>
+                  {formatNutritionValue(value, key)}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <PieChart data={nutritional_pi}/>
+        </div>
+
+      </div>
   );
 };
 

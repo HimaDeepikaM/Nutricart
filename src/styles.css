@@ -100,9 +100,18 @@ input {
   width : 80px;
 }
 
+.details-back {
+  appearance: none;
+  border: none;
+  color: #2c6716;
+  display: flex;
+  padding-left: 20px;
+  position: absolute;
+}
+
 .details-cart{
   background-color: #d5e1b8;
-  width: 25vw;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,23 +119,72 @@ input {
   height: fit-content;
   padding: 10px;
   border-radius: 0 0 0 5px;
+  text-align: center;
 }
 
 .details-details {
+  text-align: left;
+  padding-left: 10px;
+  width: 50vw;
+  max-width: 400px;
+}
+
+.details-info {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.details-info {
+  padding-top: 20px;
+}
+
 .details-image {
   width: 25vw;
+  height: fit-content;
+  margin: 30px 20px 0;
   border-radius: 10px;
+  
 }
 
 .details-header {
   display: flex;
   text-align: left;
   gap: 10px;
+}
+
+.details-heart {
+  appearance: none;
+  border: none;
+}
+
+.details-nutrit-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.details-nutrition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details-nutrition-inner {
+  display: flex;
+  width: 35vw;
+  max-width: 300px;
+  justify-content: space-between;
+}
+
+.details-nutrition span:not(:first) {
+  width: 10vw;
+}
+
+.details-title-sub {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .integer-input {
