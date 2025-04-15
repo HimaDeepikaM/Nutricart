@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Dashboard.css";
 import Grocery from "./Grocery";
 import { useNutriCartContext } from "../context/NutriCartContext";
+import RecipeList from "./RecipeList";
 
 const tabs = ["Grocery", "Recipes", "Favorites", "Orders", "Cart", "Delivery"];
 
@@ -18,9 +19,9 @@ const Dashboard = () => {
   const renderContent = () => {
     if (activeTab === "Grocery") {
       return <Grocery />;
-    }
-
-    if (activeTab === "Cart") {
+    } else if (activeTab === "Recipes") {
+      return <RecipeList />
+    } else if (activeTab === "Cart") {
       return (
         <section className="dashboard-content cart-view">
           <h2>🛒 Your Cart</h2>

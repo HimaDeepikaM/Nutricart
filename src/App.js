@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 import Grocery from "./pages/Grocery";
 import PREVIEW from "./pages/TEMP_RecipePreview";
 import Profile from "./pages/Profile";
+import RecipeList from "./pages/RecipeList"
 import "./styles.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/grocery" element={<Grocery />} />
           <Route path="/profile" element={<Profile />} />
           {/* Dynamic Routing for Recipe using id */}
+          <Route path="/recipe" element={<RecipeList />} />
           <Route path="/recipe/:title" element={<Recipe />} />
           <Route path="*" element={<ErrorPage />}/>
         </Route>

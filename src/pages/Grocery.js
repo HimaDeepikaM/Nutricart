@@ -22,7 +22,6 @@ const Grocery = () => {
             }
         });
       });
-      console.log(ingredientMap);
 
       setGroceries(Array.from(ingredientMap.values()));
     };
