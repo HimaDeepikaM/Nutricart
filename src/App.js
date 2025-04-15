@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Checkout from "./pages/Checkout";
 import Recipe from "./pages/Recipe";
+import Cart from "./pages/Cart";
+import Grocery from "./pages/Grocery";
 import PREVIEW from "./pages/TEMP_RecipePreview";
 import "./styles.css";
 
@@ -25,6 +27,8 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/preview_recipe" element={<PREVIEW />} /> {/* TODO - DELETE Reference ONLY */ }
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/grocery" element={<Grocery />} />
           {/* Dynamic Routing for Recipe using id */}
           <Route path="/recipe/:title" element={<Recipe />} />
           <Route path="*" element={<ErrorPage />}/>
