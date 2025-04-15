@@ -3,9 +3,8 @@ import "./Grocery.css";
 import { useNutriCartContext } from "../context/NutriCartContext";
 import recipesData from "../data/recipes.json";
 
-const Grocery = () => {
+const Grocery = ({searchTerm}) => {
   const [groceries, setGroceries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const { addToCart, allegenMarkedRecipes } = useNutriCartContext();
 
@@ -59,14 +58,6 @@ const Grocery = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search by name or category (e.g., 'spices', 'meat')"
-        className="search-bar"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-
       <div className="grocery-grid">
         {filteredGroceries.map((item, index) => (
           <div className="grocery-card" key={index}>

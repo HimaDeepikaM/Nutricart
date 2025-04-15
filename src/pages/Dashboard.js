@@ -1,77 +1,42 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
 import Grocery from "./Grocery";
-import { useNutriCartContext } from "../context/NutriCartContext";
 import RecipeList from "./RecipeList";
-
-const tabs = ["Grocery", "Recipes", "Favorites", "Orders", "Cart", "Delivery"];
+import { GiCook, GiCarrot } from 'react-icons/gi'; // Chef hat, carrot
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("Grocery");
+  const [displayRecipe, setDisplay] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const { cartItems, removeFromCart } = useNutriCartContext();
-
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-  const renderContent = () => {
-    if (activeTab === "Grocery") {
-      return <Grocery />;
-    } else if (activeTab === "Recipes") {
-      return <RecipeList />
-    } else if (activeTab === "Cart") {
-      return (
-        <section className="dashboard-content cart-view">
-          <h2>🛒 Your Cart</h2>
-          {cartItems.length === 0 ? (
-            <p>Your cart is empty.</p>
-          ) : (
-            <>
-              <ul className="cart-list">
-                {cartItems.map((item, index) => (
-                  <li key={index} className="cart-item">
-                    <span>
-                      <strong>{item.name}</strong>
-                    </span>{" "}
-                    — {item.quantity} × ${item.price.toFixed(2)} ={" "}
-                    <strong>${(item.quantity * item.price).toFixed(2)}</strong>
-                    <button onClick={() => removeFromCart(item)}>Remove</button>
-                  </li>
-                ))}
-              </ul>
-              <h4>Total: ${total.toFixed(2)}</h4>
-            </>
-          )}
-        </section>
-      );
-    }
-
-    // default fallback for other tabs
-    return (
-      <section className="dashboard-content">
-        <h2>{activeTab}</h2>
-        <p>This is the {activeTab} section.</p>
-      </section>
-    );
+  const handleToggle = () => {
+    setDisplay(!displayRecipe);
   };
 
   return (
     <div className="dashboard-container">
-      <nav className="dashboard-tabs">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            className={activeTab === tab ? "active" : ""}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </nav>
-
-      {renderContent()}
+      <div className="dashboard-header">
+        <h2>
+          {displayRecipe ? 'Recipes' : 'Ingredients'}
+        </h2>
+        <input
+        type="text"
+            placeholder="Search by name or category (e.g., 'spices', 'meat')"
+            className="search-bar"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={handleToggle} className="dashboard-toggle button">
+          {displayRecipe ? (
+            <GiCook size={25} />
+          ) : (
+            <GiCarrot size={25} />
+          )}
+        </button>
+      </div>
+      {displayRecipe ?
+        <RecipeList /> :
+        <Grocery searchTerm={searchTerm}/>
+      }
     </div>
   );
 };
