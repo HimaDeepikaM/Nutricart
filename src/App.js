@@ -11,7 +11,6 @@ import Favorites from "./pages/Favorites";
 import Recipe from "./pages/Recipe";
 import Cart from "./pages/Cart";
 import Grocery from "./pages/Grocery";
-import PREVIEW from "./pages/TEMP_RecipePreview";
 import Profile from "./pages/Profile";
 import RecipeList from "./pages/RecipeList"
 import "./styles.css";
@@ -27,7 +26,6 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/checkout" element={<Cart />} />
-          <Route path="/preview_recipe" element={<PREVIEW />} /> {/* TODO - DELETE Reference ONLY */ }
           <Route path="/profile" element={<Profile />} />
           <Route path="/grocery" element={<Grocery />} />
           <Route path="/recipe" element={<RecipeList />} />
