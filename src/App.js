@@ -8,7 +8,6 @@ import Layout from "./components/Layout";
 import ErrorPage from "./pages/ErrorPage";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
-import Checkout from "./pages/Checkout";
 import Recipe from "./pages/Recipe";
 import Cart from "./pages/Cart";
 import Grocery from "./pages/Grocery";
