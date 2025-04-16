@@ -32,16 +32,18 @@ const Grocery = ({searchTerm}) => {
   };
 
   const handleAddToCart = (item) => {
-    if (item.quantity === 0) return;
-
+    if (item.quantity === 0) {
+      alert("Error: No amount selected");
+      return;
+    }
     addToCart(item);
-
     // Reset quantity after adding
     setGroceries(prev =>
       prev.map(i =>
         i.name === item.name ? { ...i, quantity: 0 } : i
       )
     );
+    alert("Item added to Cart!");
   };
 
   const filteredGroceries = groceries.filter(item =>

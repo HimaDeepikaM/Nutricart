@@ -14,7 +14,7 @@ const Recipe = () => {
   }
 
   const { title } = useParams(); // Access the recipe Title from the URL
-  const { recipes } = useNutriCartContext(); // Get the recipes from the context
+  const { recipes, addToCart } = useNutriCartContext(); // Get the recipes from the context
 
   // Convert title from URL format back to regular format
   const formattedTitle = decodeURIComponent(title.replace(/-/g, " "));
@@ -52,6 +52,25 @@ const Recipe = () => {
 
   const nutritional_pi = [recipe.nutrition["Total Carbohydrate"][0].replace(/\D/, ''), recipe.nutrition["Total Fat"][0].replace(/\D/, ''), recipe.nutrition["Protein"][0].replace(/\D/, ''), recipe.nutrition["Dietary Fiber"][0].replace(/\D/, '')];
 
+  const handleAddRecipeToCart = (item, e) => {
+    // Stop the event from bubbling up to the parent div
+    e.stopPropagation();
+    if (numSelected=== 0) {
+      alert("Error: No amount selected");
+      return;
+    }
+    let temp = item;
+    temp.quantity = numSelected
+    addToCart(temp);
+    // Reset quantity after adding
+    setNumSelected(1);
+    alert("Item added to Cart!");
+  };
+
+  const handleAddFavorite = (item, e) => {
+    alert("Recipe Saved To Favorites!")
+  }
+
   return (
     <div>
       <button onClick={() => window.history.back()} className="details-back">
@@ -71,9 +90,9 @@ const Recipe = () => {
             <span>Per Serving: ${recipe.price / recipe.nutrition["Servings Per Recipe"]}</span>
             <IntegerInput value={numSelected} onValueChange={handleIntegerChange}/>
             <button className="button-sub">Remove Some Ingredients</button>
-            <button className="button">Add To Cart</button>
+            <button className="button" onClick={(e) => handleAddRecipeToCart(recipe,e)}>Add To Cart</button>
           </div>
-          <button onClick={() => alert("Recipe Saved To Favorites!")} className="details-heart">
+          <button onClick={(e) => handleAddFavorite(recipe, e)} className="details-heart">
             <FaHeart size={24} color="red" />
           </button>
         </div>

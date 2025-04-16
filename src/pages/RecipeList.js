@@ -23,8 +23,19 @@ const RecipeList = () => {
     const handleAddRecipeToCart = (item, e) => {
         // Stop the event from bubbling up to the parent div
         e.stopPropagation();
-        // if (item.quantity === 0) return;
-        addToCart(item);
+        if (quantities[item.name] === 0) {
+            alert("Error: No amount selected");
+            return;
+        }
+        let temp = item;
+        temp.quantity = quantities[item.name]
+        addToCart(temp);
+        // Reset quantity after adding
+        setQuantities(prevQuantities => ({
+        ...prevQuantities,
+        [item.name]: 1
+        }));
+        alert("Item added to Cart!");
     };
 
     const handleRecipeClick = (recipeTitle) => {

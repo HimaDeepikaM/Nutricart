@@ -4,7 +4,7 @@ import IntegerInput from "../components/IntegerInput";
 import "./Cart.css";
 
 const Cart = () => {
-  const { cartItems, removeFromCart, addToCart } = useNutriCartContext();
+  const { cartItems, removeFromCart, updateCart } = useNutriCartContext();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -18,7 +18,7 @@ const Cart = () => {
     if (newQuantity <= 0) {
       removeFromCart(updatedItem);
     } else {
-      addToCart({ ...updatedItem, quantity: newQuantity });
+      updateCart({ ...updatedItem, quantity: newQuantity });
     }
   };
 

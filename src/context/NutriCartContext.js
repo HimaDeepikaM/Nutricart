@@ -53,7 +53,7 @@ export const NutriCartProvider = ({ children }) => {
         const updatedItems = [...prevItems];
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],
-          quantity: item.quantity,
+          quantity: updatedItems[existingItemIndex].quantity + item.quantity,
         };
         return updatedItems;
       }
@@ -65,6 +65,27 @@ export const NutriCartProvider = ({ children }) => {
   // Remove item from cart
   const removeFromCart = (item) => {
     setCartItems((prevCartItems) => prevCartItems.filter(cartItem => cartItem !== item));
+  };
+  const updateCart = (item) => {
+    setCartItems((prevItems) => {
+      // Check if the item already exists in the cart
+      const existingItemIndex = prevItems.findIndex(
+        (cartItem) => cartItem.name === item.name
+      );
+
+      if (existingItemIndex !== -1) {
+        // If the item exists, update the quantity
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: item.quantity,
+        };
+        return updatedItems;
+      }
+
+      // If the item doesn't exist, add it to the cart
+      return [...prevItems, item];
+    });
   };
 
   // RECIPES -------------------------------------------------------------------------
@@ -198,6 +219,7 @@ export const NutriCartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
+        updateCart,
         allegenMarkedRecipes,
         allergens,
         addToAllergens,
