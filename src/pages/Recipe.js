@@ -19,8 +19,8 @@ const Recipe = () => {
   // Convert title from URL format back to regular format
   const formattedTitle = decodeURIComponent(title.replace(/-/g, " "));
 
-  // Find the recipe by Title
-  const recipe = recipes.find((recipe) => recipe.Title.toLowerCase() === formattedTitle.toLowerCase());
+  // Find the recipe by name
+  const recipe = recipes.find((recipe) => recipe.name.toLowerCase() === formattedTitle.toLowerCase());
 
   if (!recipe) {
     // Direct to Error Page
@@ -50,7 +50,7 @@ const Recipe = () => {
     );
   };
 
-  const nutritional_pi = [recipe.Nutrition["Total Carbohydrate"][0].replace(/\D/, ''), recipe.Nutrition["Total Fat"][0].replace(/\D/, ''), recipe.Nutrition["Protein"][0].replace(/\D/, ''), recipe.Nutrition["Dietary Fiber"][0].replace(/\D/, '')];
+  const nutritional_pi = [recipe.nutrition["Total Carbohydrate"][0].replace(/\D/, ''), recipe.nutrition["Total Fat"][0].replace(/\D/, ''), recipe.nutrition["Protein"][0].replace(/\D/, ''), recipe.nutrition["Dietary Fiber"][0].replace(/\D/, '')];
 
   return (
     <div>
@@ -58,17 +58,17 @@ const Recipe = () => {
         <FaArrowLeft size={24} />
       </button>
       <div className="details-header">
-        <img src={recipe["Image URL"]} alt={recipe.Title} className="details-image"/>
+        <img src={recipe["image URL"]} alt={recipe.name} className="details-image"/>
         <div className="details-info">
-          <h2>{recipe.Title}</h2>
-          <span>{recipe.Description}</span>
-          <span>Serving Size: {recipe.Nutrition["Servings Per Recipe"]}</span>
-          <span>Calories Per Serving: {recipe.Nutrition["Calories"]}</span>
+          <h2>{recipe.name}</h2>
+          <span>{recipe.description}</span>
+          <span>Serving Size: {recipe.nutrition["Servings Per Recipe"]}</span>
+          <span>Calories Per Serving: {recipe.nutrition["Calories"]}</span>
         </div>
         <div>
           <div className="details-cart">
-            <span>Total: ${recipe.Price * numSelected}</span>
-            <span>Per Serving: ${recipe.Price / recipe.Nutrition["Servings Per Recipe"]}</span>
+            <span>Total: ${recipe.price * numSelected}</span>
+            <span>Per Serving: ${recipe.price / recipe.nutrition["Servings Per Recipe"]}</span>
             <IntegerInput value={numSelected} onValueChange={handleIntegerChange}/>
             <button className="button-sub">Remove Some Ingredients</button>
             <button className="button">Add To Cart</button>
@@ -83,7 +83,7 @@ const Recipe = () => {
         <div>
           <div className="details-details">
             <h3 className="details-title-sub">Ingredients</h3>
-            {recipe.Ingredients.map((ingredient, index) => (
+            {recipe.ingredients.map((ingredient, index) => (
               <div>
                 {ingredient.map((subIngredient, index2) => (
                   <span>{subIngredient} </span>
@@ -94,7 +94,7 @@ const Recipe = () => {
 
             <div className="details-details">
               <h3 className="details-title-sub">Nutrition Information</h3>
-              {Object.entries(recipe.Nutrition).map(([key, value]) => (
+              {Object.entries(recipe.nutrition).map(([key, value]) => (
                 <div>
                   {formatNutritionValue(value, key)}
                 </div>

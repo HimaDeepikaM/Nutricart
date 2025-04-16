@@ -7,7 +7,7 @@ function PREVIEW() {
         {allegenMarkedRecipes != undefined ? (
             allegenMarkedRecipes.map((recipe, index) => (
               <div>
-                  <h2>{recipe.Title}</h2> {/* Render the title of the recipe */}
+                  <h2>{recipe.name}</h2> {/* Render the title of the recipe */}
                   <p>{recipe.Description}</p> {/* Render the description */}
                   
                   <ul>

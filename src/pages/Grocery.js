@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Grocery.css";
 import { useNutriCartContext } from "../context/NutriCartContext";
-import recipesData from "../data/recipes.json";
+import IntegerInput from "../components/IntegerInput";
 
 const Grocery = ({searchTerm}) => {
   const [groceries, setGroceries] = useState([]);
@@ -9,30 +9,23 @@ const Grocery = ({searchTerm}) => {
   const { addToCart, allegenMarkedRecipes } = useNutriCartContext();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = recipesData;
-
-      const ingredientMap = new Map();
-
-      allegenMarkedRecipes.forEach(recipe => {
-        recipe.ingredientMap.forEach(ingredient => {
-            if (!ingredientMap.has(ingredient.cleanName)) {
-                ingredientMap.set(ingredient.cleanName, ingredient);
-            }
-        });
+    const ingredientMap = new Map();
+    allegenMarkedRecipes.forEach(recipe => {
+      recipe.ingredientMap.forEach(ingredient => {
+          if (!ingredientMap.has(ingredient.cleanName)) {
+              ingredientMap.set(ingredient.cleanName, ingredient);
+          }
       });
+    });
 
-      setGroceries(Array.from(ingredientMap.values()));
-    };
-
-    fetchData();
+    setGroceries(Array.from(ingredientMap.values()));
   }, [allegenMarkedRecipes]);
 
   const updateQuantity = (index, delta) => {
     setGroceries(prev =>
       prev.map((item, i) =>
         i === index
-          ? { ...item, quantity: Math.max(0, item.quantity + delta) }
+          ? { ...item, quantity: Math.max(0, delta) }
           : item
       )
     );
@@ -65,16 +58,13 @@ const Grocery = ({searchTerm}) => {
             <div className="grocery-price">
               Price per {item.unit}: ${item.price.toFixed(2)}
             </div>
-            <div className="quantity-controls">
-              <button onClick={() => updateQuantity(index, -1)}>-</button>
-              <span>{item.quantity}</span>
-              <button onClick={() => updateQuantity(index, 1)}>+</button>
-            </div>
+            <IntegerInput value={item.quantity}
+              onValueChange={(newValue) => updateQuantity(index, newValue)} />
             <div className="total-price">
               Total: ${(item.price * item.quantity).toFixed(2)}
             </div>
             <button
-              className="add-to-cart-btn"
+              className="add-to-cart-btn button"
               onClick={() => handleAddToCart(item)}
             >
               Add to Cart

@@ -40,9 +40,27 @@ export const NutriCartProvider = ({ children }) => {
   };
 
   // CART ---------------------------------------------------------------------------
-  // Add item to cart
+  // Add item to cart or update item if exists
   const addToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    setCartItems((prevItems) => {
+      // Check if the item already exists in the cart
+      const existingItemIndex = prevItems.findIndex(
+        (cartItem) => cartItem.name === item.name
+      );
+
+      if (existingItemIndex !== -1) {
+        // If the item exists, update the quantity
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: item.quantity,
+        };
+        return updatedItems;
+      }
+
+      // If the item doesn't exist, add it to the cart
+      return [...prevItems, item];
+    });
   };
   // Remove item from cart
   const removeFromCart = (item) => {
@@ -125,7 +143,7 @@ export const NutriCartProvider = ({ children }) => {
       ) : false;
 
       const ingredientMap = new Map();
-      recipe.Ingredients.forEach(([qty, unit, name]) => {
+      recipe.ingredients.forEach(([qty, unit, name]) => {
         const cleanName = name.toLowerCase().split(",")[0].trim();
         if (!ingredientMap.has(cleanName)) {
           const category = categorizeIngredient(cleanName);

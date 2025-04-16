@@ -1,5 +1,6 @@
 import React from "react";
 import { useNutriCartContext } from "../context/NutriCartContext";
+import IntegerInput from "../components/IntegerInput";
 import "./Cart.css";
 
 const Cart = () => {
@@ -10,15 +11,14 @@ const Cart = () => {
     0
   );
 
-  const increaseQuantity = (item) => {
-    addToCart({ ...item, quantity: 1 });
-  };
+  const updateQuantity = (index, newQuantity) => {
+    const updatedItem = cartItems[index];
 
-  const decreaseQuantity = (item) => {
-    if (item.quantity <= 1) {
-      removeFromCart(item);
+    // If quantity is 0 or less, remove the item
+    if (newQuantity <= 0) {
+      removeFromCart(updatedItem);
     } else {
-      addToCart({ ...item, quantity: -1 });
+      addToCart({ ...updatedItem, quantity: newQuantity });
     }
   };
 
@@ -35,13 +35,8 @@ const Cart = () => {
               <div className="cart-card" key={index}>
                 <h3 className="item-name">{item.name}</h3>
                 <p className="item-price">Price: ${item.price.toFixed(2)} per {item.unit}</p>
-
-                <div className="quantity-controls">
-                  <button onClick={() => decreaseQuantity(item)}>-</button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => increaseQuantity(item)}>+</button>
-                </div>
-
+                <IntegerInput value={item.quantity}
+                  onValueChange={(newValue) => updateQuantity(index, newValue)} />
                 <p className="item-total">Total: ${(item.price * item.quantity).toFixed(2)}</p>
 
                 <button className="remove-btn" onClick={() => removeFromCart(item)}>

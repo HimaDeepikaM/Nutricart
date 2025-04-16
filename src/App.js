@@ -27,13 +27,12 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Cart />} />
           <Route path="/preview_recipe" element={<PREVIEW />} /> {/* TODO - DELETE Reference ONLY */ }
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/grocery" element={<Grocery />} />
           <Route path="/profile" element={<Profile />} />
-          {/* Dynamic Routing for Recipe using id */}
+          <Route path="/grocery" element={<Grocery />} />
           <Route path="/recipe" element={<RecipeList />} />
+          {/* Dynamic Routing for Recipe using id */}
           <Route path="/recipe/:title" element={<Recipe />} />
           <Route path="*" element={<ErrorPage />}/>
         </Route>

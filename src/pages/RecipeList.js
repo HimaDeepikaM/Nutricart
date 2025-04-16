@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { useNutriCartContext } from "../context/NutriCartContext";
+import IntegerInput from "../components/IntegerInput";
 
 
 const RecipeList = () => {
+    // const [numSelected, setNumSelected] = useState([]);
     const { addToCart, allegenMarkedRecipes } = useNutriCartContext();
     const navigate = useNavigate(); 
 
-    const handleAddRecipeToCart = (item) => {
+    // Track the quantity for each recipe
+    const [quantities, setQuantities] = useState([]);
+
+    // Update quantity for a specific recipe
+    const handleQuantityChange = (recipeId, newQuantity) => {
+        setQuantities(prevQuantities => ({
+        ...prevQuantities,
+        [recipeId]: newQuantity
+        }));
+    };
+
+    const handleAddRecipeToCart = (item, e) => {
+        // Stop the event from bubbling up to the parent div
+        e.stopPropagation();
         // if (item.quantity === 0) return;
-    
         addToCart(item);
     };
 
@@ -18,26 +32,30 @@ const RecipeList = () => {
         navigate(`/recipe/${encodeURIComponent(recipeTitle).replace(/ /g, "-")}`);
     };
 
+    useEffect(() => {    
+        setQuantities(allegenMarkedRecipes.reduce((acc, recipe) => {
+        acc[recipe.name] = 1; // initialize quantity from recipe or set to 0
+        return acc;
+        }, {}))
+      }, [allegenMarkedRecipes]);
+
     return (
         <div>
             <div className="grocery-grid">
                 {allegenMarkedRecipes.map((recipe, index) => (
-                    <div className="grocery-card" key={index} onClick={() => handleRecipeClick(recipe.Title)}>
-                        <div className="grocery-name">{recipe.Title}</div>
+                    <div className="grocery-card" key={index} onClick={() => handleRecipeClick(recipe.name)}>
+                        <div className="grocery-name">{recipe.name}</div>
                         <div className="grocery-price">
-                            Price per serving: ${(recipe.Nutrition["Servings Per Recipe"] / recipe.Price).toFixed(2)}
+                            Price per serving: ${(recipe.price / recipe.nutrition["Servings Per Recipe"]).toFixed(2)}
                         </div>
-                        <div className="quantity-controls">
-                            <button >-</button>
-                            <span>{1}</span>
-                            <button >+</button>
-                        </div>
+                        <IntegerInput value={quantities[recipe.name]}
+                            onValueChange={(newValue) => handleQuantityChange(recipe.name, newValue)} />
                         <div className="total-price">
-                            Total: ${(recipe.Price * 1).toFixed(2)}
+                            Total: ${(recipe.price * quantities[recipe.name]).toFixed(2)}
                         </div>
                         <button
-                            className="add-to-cart-btn"
-                            // onClick={() => handleAddToCart(item)}
+                            className="add-to-cart-btn button"
+                            onClick={(e) => handleAddRecipeToCart(recipe,e)}
                         >
                             Add to Cart
                         </button>

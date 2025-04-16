@@ -1,8 +1,8 @@
 [
     {
-        "Title": "Grilled Flounder",
-        "Description": "These grilled flounder filets first need to be marinated in olive oil, celery salt, garlic, lemon zest, lemon juice, and smoked paprika for 30 minutes. Grilling gives them a light fresh flavor.",
-        "Ingredients": [
+        "name": "Grilled Flounder",
+        "description": "These grilled flounder filets first need to be marinated in olive oil, celery salt, garlic, lemon zest, lemon juice, and smoked paprika for 30 minutes. Grilling gives them a light fresh flavor.",
+        "ingredients": [
             [
                 "1/4",
                 "cup",
@@ -39,7 +39,7 @@
                 "flounder"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "2",
             "Calories": "352",
             "Total Fat": [
@@ -87,13 +87,14 @@
                 "7%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/6I0z429wLqix6jMvATv6xztlwKk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8304101_Grilled-Flounder_Chef-Mo_4x3-185f3b7172c94feeb2b18fce09876173.jpg",
-        "Price": 54.02
+        "image URL": "https://www.allrecipes.com/thmb/6I0z429wLqix6jMvATv6xztlwKk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8304101_Grilled-Flounder_Chef-Mo_4x3-185f3b7172c94feeb2b18fce09876173.jpg",
+        "price": 68.97,
+        "quantity": 0
     },
     {
-        "Title": "Baked Asian Rockfish",
-        "Description": "In this baked rockfish recipe, a light Asian-inspired sauce is poured over the filets, complimenting the delicate flavor of the rockfish. Serve over rice and vegetables with some of the cooked sauce for a nice easy meal.",
-        "Ingredients": [
+        "name": "Baked Asian Rockfish",
+        "description": "In this baked rockfish recipe, a light Asian-inspired sauce is poured over the filets, complimenting the delicate flavor of the rockfish. Serve over rice and vegetables with some of the cooked sauce for a nice easy meal.",
+        "ingredients": [
             [
                 "4",
                 "6 ounce",
@@ -140,7 +141,7 @@
                 "scallions"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "105",
             "Total Fat": [
@@ -188,13 +189,14 @@
                 "4%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/AHBLF03dvi_2eLtOwBDwYI8L0CY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7814108_Baked-Asian-Rockfish_Chef-Mo_4x3-7f93040d5bf44e03816761dff544b33d.jpg",
-        "Price": 57.45
+        "image URL": "https://www.allrecipes.com/thmb/AHBLF03dvi_2eLtOwBDwYI8L0CY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7814108_Baked-Asian-Rockfish_Chef-Mo_4x3-7f93040d5bf44e03816761dff544b33d.jpg",
+        "price": 62.78,
+        "quantity": 0
     },
     {
-        "Title": "Pesto Pasta",
-        "Description": "Pesto pasta is easy to make and full of flavor. It tastes good hot or cold!",
-        "Ingredients": [
+        "name": "Pesto Pasta",
+        "description": "Pesto pasta is easy to make and full of flavor. It tastes good hot or cold!",
+        "ingredients": [
             [
                 "1",
                 "(16 ounce) package",
@@ -221,7 +223,7 @@
                 "grated Parmesan cheese"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "8",
             "Calories": "225",
             "Total Fat": [
@@ -269,13 +271,14 @@
                 "3%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/SV2xyYezS5Iv4gjOhuWTgoUN71Y=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-RM-11887-pesto-pasta-ddmfs-3x4-deed54c61faa4c95a4cd467e5f4066ab.jpg",
-        "Price": 58.41
+        "image URL": "https://www.allrecipes.com/thmb/SV2xyYezS5Iv4gjOhuWTgoUN71Y=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-RM-11887-pesto-pasta-ddmfs-3x4-deed54c61faa4c95a4cd467e5f4066ab.jpg",
+        "price": 55.51,
+        "quantity": 0
     },
     {
-        "Title": "Gnocchi",
-        "Description": "Gnocchi is simple to make with just three ingredients: mashed potato, flour, and egg. This recipe is one my family has used for generations.",
-        "Ingredients": [
+        "name": "Gnocchi",
+        "description": "Gnocchi is simple to make with just three ingredients: mashed potato, flour, and egg. This recipe is one my family has used for generations.",
+        "ingredients": [
             [
                 "3",
                 "medium",
@@ -297,7 +300,7 @@
                 "kosher salt"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "314",
             "Total Fat": [
@@ -345,13 +348,14 @@
                 "17%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/wM8WeDZnQ_TNrTGgh8kDQEyMQ1s=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/18465-gnocchi-ddmfs-3x4-0431-715927775cb747599c04b42bef952baa.jpg",
-        "Price": 59.74
+        "image URL": "https://www.allrecipes.com/thmb/wM8WeDZnQ_TNrTGgh8kDQEyMQ1s=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/18465-gnocchi-ddmfs-3x4-0431-715927775cb747599c04b42bef952baa.jpg",
+        "price": 60.43,
+        "quantity": 0
     },
     {
-        "Title": "Maple Salmon",
-        "Description": "This maple glazed salmon is delicious and very easy to prepare. I love maple syrup in everything and decided to use it in the marinade. My husband totally loved it; he wasn't a salmon fan until now.",
-        "Ingredients": [
+        "name": "Maple Salmon",
+        "description": "This maple glazed salmon is delicious and very easy to prepare. I love maple syrup in everything and decided to use it in the marinade. My husband totally loved it; he wasn't a salmon fan until now.",
+        "ingredients": [
             [
                 "\u00bc",
                 "cup",
@@ -383,7 +387,7 @@
                 "salmon"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "265",
             "Total Fat": [
@@ -431,13 +435,14 @@
                 "10%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/e_4CLAEQhibH7JTEHpwCMNVc7Yo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/51283-RM-maple-salmon-ddmfs-3x4-2624-1e5a9dc354a54744b72c6e19e8fbbcca.jpg",
-        "Price": 45.5
+        "image URL": "https://www.allrecipes.com/thmb/e_4CLAEQhibH7JTEHpwCMNVc7Yo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/51283-RM-maple-salmon-ddmfs-3x4-2624-1e5a9dc354a54744b72c6e19e8fbbcca.jpg",
+        "price": 64.93,
+        "quantity": 0
     },
     {
-        "Title": "Black Beans and Rice",
-        "Description": "Black beans and rice make a great 30-minute vegetarian meal that's filling, delicious, and cheap! Great as a side dish or in a burrito bowl, too.",
-        "Ingredients": [
+        "name": "Black Beans and Rice",
+        "description": "Black beans and rice make a great 30-minute vegetarian meal that's filling, delicious, and cheap! Great as a side dish or in a burrito bowl, too.",
+        "ingredients": [
             [
                 "1",
                 "teaspoon",
@@ -474,7 +479,7 @@
                 "cayenne pepper"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "6",
             "Calories": "140",
             "Total Fat": [
@@ -518,13 +523,14 @@
                 "6%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/hMja9LT1K2q11QebvcU8OeOOkmg=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-15559-Black-Beans-and-Rice-ddmfs-4x3-f8461d6ea2eb4fc3b20dc2184d0fbe6e.jpg",
-        "Price": 66.7
+        "image URL": "https://www.allrecipes.com/thmb/hMja9LT1K2q11QebvcU8OeOOkmg=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-15559-Black-Beans-and-Rice-ddmfs-4x3-f8461d6ea2eb4fc3b20dc2184d0fbe6e.jpg",
+        "price": 66.4,
+        "quantity": 0
     },
     {
-        "Title": "Easy Baked Tilapia",
-        "Description": "This baked tilapia recipe is super easy. It only takes a few minutes to prepare, uses few ingredients, and is flavorful.",
-        "Ingredients": [
+        "name": "Easy Baked Tilapia",
+        "description": "This baked tilapia recipe is super easy. It only takes a few minutes to prepare, uses few ingredients, and is flavorful.",
+        "ingredients": [
             [
                 "4",
                 "(4 ounce) fillets",
@@ -551,7 +557,7 @@
                 "frozen cauliflower with broccoli and red pepper"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "172",
             "Total Fat": [
@@ -599,13 +605,14 @@
                 "11%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/tFFlyyt0TYwpKLvHjPFrPDgUZRo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/70163-easy-baked-tilapia-DDMFS-4x3-6c1e91e8290d45cca4f67dc76c18afee.jpg",
-        "Price": 42.69
+        "image URL": "https://www.allrecipes.com/thmb/tFFlyyt0TYwpKLvHjPFrPDgUZRo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/70163-easy-baked-tilapia-DDMFS-4x3-6c1e91e8290d45cca4f67dc76c18afee.jpg",
+        "price": 47.6,
+        "quantity": 0
     },
     {
-        "Title": "Pesto Pasta with Chicken",
-        "Description": "This chicken pesto pasta is easy and delicious. Serve with crusty bread and salad for a quick dinner. Use as much or as little pesto sauce as you like. Using homemade pesto will taste even better, but it adds to prep time. Enjoy!",
-        "Ingredients": [
+        "name": "Pesto Pasta with Chicken",
+        "description": "This chicken pesto pasta is easy and delicious. Serve with crusty bread and salad for a quick dinner. Use as much or as little pesto sauce as you like. Using homemade pesto will taste even better, but it adds to prep time. Enjoy!",
+        "ingredients": [
             [
                 "1",
                 "(16 ounce) package",
@@ -637,7 +644,7 @@
                 "oil-packed sun-dried tomatoes, drained and cut into strips"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "8",
             "Calories": "328",
             "Total Fat": [
@@ -685,13 +692,14 @@
                 "7%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/6iHSDzy1OmmWbzdCVUlrTb3ouJo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-46982-pesto-pasta-with-chicken-DDMFS-4x3-5e043df9d5174cf4ac53612ee0f5b56e.jpg",
-        "Price": 49.43
+        "image URL": "https://www.allrecipes.com/thmb/6iHSDzy1OmmWbzdCVUlrTb3ouJo=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-46982-pesto-pasta-with-chicken-DDMFS-4x3-5e043df9d5174cf4ac53612ee0f5b56e.jpg",
+        "price": 50.25,
+        "quantity": 0
     },
     {
-        "Title": "Baked Honey Mustard Chicken",
-        "Description": "This honey mustard chicken is quick and easy to prepare, and the kids love it, too!",
-        "Ingredients": [
+        "name": "Baked Honey Mustard Chicken",
+        "description": "This honey mustard chicken is quick and easy to prepare, and the kids love it, too!",
+        "ingredients": [
             [
                 "\u00bd",
                 "cup",
@@ -718,7 +726,7 @@
                 "dried parsley"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "6",
             "Calories": "232",
             "Total Fat": [
@@ -766,13 +774,14 @@
                 "6%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/MB8UkokS6KCRa5m3ZCKlADnCMSg=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-8847-baked-honey-mustard-chicken-DDMFS-4x3-Beauty-7a722636696d4cf4837ea1366545bada.jpg",
-        "Price": 59.27
+        "image URL": "https://www.allrecipes.com/thmb/MB8UkokS6KCRa5m3ZCKlADnCMSg=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/AR-8847-baked-honey-mustard-chicken-DDMFS-4x3-Beauty-7a722636696d4cf4837ea1366545bada.jpg",
+        "price": 44.37,
+        "quantity": 0
     },
     {
-        "Title": "Homemade Black Bean Veggie Burgers",
-        "Description": "With this black bean burger recipe, you will never want to eat frozen veggie burgers again! These are a quick, easy, and flavorful vegetarian delight.",
-        "Ingredients": [
+        "name": "Homemade Black Bean Veggie Burgers",
+        "description": "With this black bean burger recipe, you will never want to eat frozen veggie burgers again! These are a quick, easy, and flavorful vegetarian delight.",
+        "ingredients": [
             [
                 "1",
                 "(16 ounce) can",
@@ -804,7 +813,7 @@
                 "bread crumbs"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "198",
             "Total Fat": [
@@ -852,13 +861,14 @@
                 "11%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/fHL-E5_EiMkPRtmCsbNIVaaHbKA=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/85452-Homemade-Black-Bean-Veggie-Burger-ddmfs-103084-4x3-1-d017a13835c3449996c9e69fc0f74808.jpg",
-        "Price": 65.53
+        "image URL": "https://www.allrecipes.com/thmb/fHL-E5_EiMkPRtmCsbNIVaaHbKA=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/85452-Homemade-Black-Bean-Veggie-Burger-ddmfs-103084-4x3-1-d017a13835c3449996c9e69fc0f74808.jpg",
+        "price": 61.22,
+        "quantity": 0
     },
     {
-        "Title": "Fish Tacos",
-        "Description": "These crispy fish tacos with shredded cabbage and a spicy homemade white sauce are just delicious! Serve with homemade pico de gallo and lime wedges to squeeze on top.",
-        "Ingredients": [
+        "name": "Fish Tacos",
+        "description": "These crispy fish tacos with shredded cabbage and a spicy homemade white sauce are just delicious! Serve with homemade pico de gallo and lime wedges to squeeze on top.",
+        "ingredients": [
             [
                 "1",
                 "cup",
@@ -885,7 +895,7 @@
                 "beer"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "8",
             "Calories": "409",
             "Total Fat": [
@@ -933,13 +943,14 @@
                 "11%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/Rf2I8K5gdXVjZyLLNFfFlttoGew=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/53729-fish-tacos-DDMFS-4x3-b5547c67c6f0432da06ad8f905e82c1e.jpg",
-        "Price": 48.17
+        "image URL": "https://www.allrecipes.com/thmb/Rf2I8K5gdXVjZyLLNFfFlttoGew=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/53729-fish-tacos-DDMFS-4x3-b5547c67c6f0432da06ad8f905e82c1e.jpg",
+        "price": 54.55,
+        "quantity": 0
     },
     {
-        "Title": "Wonton Soup",
-        "Description": "Wonton soup is a simple, light, Chinese classic with juicy pork and shrimp dumplings in a flavorsome broth. These homemade wontons always add delicious, hearty flavor to any dish!",
-        "Ingredients": [
+        "name": "Wonton Soup",
+        "description": "Wonton soup is a simple, light, Chinese classic with juicy pork and shrimp dumplings in a flavorsome broth. These homemade wontons always add delicious, hearty flavor to any dish!",
+        "ingredients": [
             [
                 "\u00bd",
                 "pound",
@@ -981,7 +992,7 @@
                 "wonton wrappers"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "6",
             "Calories": "195",
             "Total Fat": [
@@ -1029,13 +1040,14 @@
                 "4%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/HH66nuK-eaDVVOOQKTEMr_gKs74=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-13199-wonton-soup-VAT-4x3-31bd1ef2795144ee93fed67a1cf3743d.jpg",
-        "Price": 42.0
+        "image URL": "https://www.allrecipes.com/thmb/HH66nuK-eaDVVOOQKTEMr_gKs74=/160x90/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-13199-wonton-soup-VAT-4x3-31bd1ef2795144ee93fed67a1cf3743d.jpg",
+        "price": 49.15,
+        "quantity": 0
     },
     {
-        "Title": "Tomato and Garlic Pasta",
-        "Description": "For this simple garlic and tomato pasta recipe, there is nothing nicer than the flavor of fresh tomatoes. You can use canned, but the trouble you take to prepare this dish is worth it. You prepare the sauce while the pasta is cooking, no long hours of waiting. Great if you want meatless pasta.",
-        "Ingredients": [
+        "name": "Tomato and Garlic Pasta",
+        "description": "For this simple garlic and tomato pasta recipe, there is nothing nicer than the flavor of fresh tomatoes. You can use canned, but the trouble you take to prepare this dish is worth it. You prepare the sauce while the pasta is cooking, no long hours of waiting. Great if you want meatless pasta.",
+        "ingredients": [
             [
                 "2",
                 "pounds",
@@ -1072,7 +1084,7 @@
                 "grated Parmesan cheese"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "260",
             "Total Fat": [
@@ -1120,13 +1132,14 @@
                 "15%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/5SdUVhHTMs-rta5sOblJESXThEE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11691-tomato-and-garlic-pasta-ddmfs-3x4-1-bf607984a23541f4ad936b33b22c9074.jpg",
-        "Price": 63.14
+        "image URL": "https://www.allrecipes.com/thmb/5SdUVhHTMs-rta5sOblJESXThEE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11691-tomato-and-garlic-pasta-ddmfs-3x4-1-bf607984a23541f4ad936b33b22c9074.jpg",
+        "price": 42.21,
+        "quantity": 0
     },
     {
-        "Title": "Chana Masala (Indian Chickpea Curry)",
-        "Description": "Give this chana masala dish a try and don't look back! This Indian chickpea curry features a hearty mixture of chickpeas, tomatoes, onion, green chili, and warm Indian spices. Both carnivores and vegetarians will enjoy this meal. My kids love it. Serve over basmati or jasmine rice and enjoy. Namaste y'all!",
-        "Ingredients": [
+        "name": "Chana Masala (Indian Chickpea Curry)",
+        "description": "Give this chana masala dish a try and don't look back! This Indian chickpea curry features a hearty mixture of chickpeas, tomatoes, onion, green chili, and warm Indian spices. Both carnivores and vegetarians will enjoy this meal. My kids love it. Serve over basmati or jasmine rice and enjoy. Namaste y'all!",
+        "ingredients": [
             [
                 "1",
                 "(1-inch) piece",
@@ -1178,7 +1191,7 @@
                 "fresh cilantro leaves, for garnish, or more to taste"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "2",
             "Calories": "413",
             "Total Fat": [
@@ -1222,13 +1235,14 @@
                 "14%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/siVGrqeV5Q7xvRGaWWA_5ph9Dds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/236564-chana-masala-savory-indian-chick-peas-3x4-672-copy-63ae3db5114644419c313cd0e479c9dd.jpg",
-        "Price": 68.17
+        "image URL": "https://www.allrecipes.com/thmb/siVGrqeV5Q7xvRGaWWA_5ph9Dds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/236564-chana-masala-savory-indian-chick-peas-3x4-672-copy-63ae3db5114644419c313cd0e479c9dd.jpg",
+        "price": 59.92,
+        "quantity": 0
     },
     {
-        "Title": "Parchment Baked Salmon",
-        "Description": "Cooking salmon in parchment paper is the best way to steam with great taste.",
-        "Ingredients": [
+        "name": "Parchment Baked Salmon",
+        "description": "Cooking salmon in parchment paper is the best way to steam with great taste.",
+        "ingredients": [
             [
                 "1",
                 "(8 ounce)",
@@ -1240,7 +1254,7 @@
                 "chopped basil leaves"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "2",
             "Calories": "175",
             "Total Fat": [
@@ -1288,13 +1302,14 @@
                 "11%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/JZsLVAsVN15S3PKP5mHcpOgNwqU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/963911-parchment-baked-salmon-Bibi-4x3-1-361a040fc5a04575af66405ddb7a7ffd.jpg",
-        "Price": 48.26
+        "image URL": "https://www.allrecipes.com/thmb/JZsLVAsVN15S3PKP5mHcpOgNwqU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/963911-parchment-baked-salmon-Bibi-4x3-1-361a040fc5a04575af66405ddb7a7ffd.jpg",
+        "price": 66.07,
+        "quantity": 0
     },
     {
-        "Title": "Chicken and Red Wine Sauce",
-        "Description": "A simple chicken and red wine recipe with a tasty sauce made from brown sugar, garlic, paprika, salt, and pepper. Everything balanced together makes this dish comforting and yummy! Braised chicken breasts, brazenly good taste.",
-        "Ingredients": [
+        "name": "Chicken and Red Wine Sauce",
+        "description": "A simple chicken and red wine recipe with a tasty sauce made from brown sugar, garlic, paprika, salt, and pepper. Everything balanced together makes this dish comforting and yummy! Braised chicken breasts, brazenly good taste.",
+        "ingredients": [
             [
                 "1",
                 "tablespoon",
@@ -1326,7 +1341,7 @@
                 "red wine"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "12",
             "Calories": "214",
             "Total Fat": [
@@ -1374,13 +1389,14 @@
                 "4%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/DnM0CXngPFDFeoUoVegnB-rn7EI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/19125-chicken-and-red-wine-sauce-ddmfs-4x3-22-cf6719426d7a4553926e18b4ca6ca86c.jpg",
-        "Price": 50.17
+        "image URL": "https://www.allrecipes.com/thmb/DnM0CXngPFDFeoUoVegnB-rn7EI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/19125-chicken-and-red-wine-sauce-ddmfs-4x3-22-cf6719426d7a4553926e18b4ca6ca86c.jpg",
+        "price": 48.56,
+        "quantity": 0
     },
     {
-        "Title": "Lemon-Orange Orange Roughy",
-        "Description": "This orange roughy recipe is very quick to prepare and has a citrus twist.",
-        "Ingredients": [
+        "name": "Lemon-Orange Orange Roughy",
+        "description": "This orange roughy recipe is very quick to prepare and has a citrus twist.",
+        "ingredients": [
             [
                 "1",
                 "tablespoon",
@@ -1397,7 +1413,7 @@
                 "lemon pepper"
             ]
         ],
-        "Nutrition": {
+        "nutrition": {
             "Servings Per Recipe": "4",
             "Calories": "140",
             "Total Fat": [
@@ -1445,7 +1461,8 @@
                 "6%"
             ]
         },
-        "Image URL": "https://www.allrecipes.com/thmb/LFMuPa37s5Z_Z7Hamah4bqN004w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/153437-e01b2ffd5b7647a6abbc6bc6812631cb.jpg",
-        "Price": 60.36
+        "image URL": "https://www.allrecipes.com/thmb/LFMuPa37s5Z_Z7Hamah4bqN004w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/153437-e01b2ffd5b7647a6abbc6bc6812631cb.jpg",
+        "price": 65.3,
+        "quantity": 0
     }
 ]
