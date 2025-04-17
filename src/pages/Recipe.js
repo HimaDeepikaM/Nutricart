@@ -4,7 +4,8 @@ import { useNutriCartContext } from "../context/NutriCartContext";
 import ErrorPage from "./ErrorPage";
 import IntegerInput from "../components/IntegerInput";
 import PieChart from "../components/PieChart";
-import { FaArrowLeft, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
+import FavoritesButton from "../components/FavoritesButton";
 
 const Recipe = () => {
   // IntegerInput
@@ -67,10 +68,6 @@ const Recipe = () => {
     alert("Item added to Cart!");
   };
 
-  const handleAddFavorite = (item, e) => {
-    alert("Recipe Saved To Favorites!")
-  }
-
   return (
     <div>
       <button onClick={() => window.history.back()} className="details-back">
@@ -86,15 +83,13 @@ const Recipe = () => {
         </div>
         <div>
           <div className="details-cart">
-            <span>Total: ${recipe.price * numSelected}</span>
-            <span>Per Serving: ${recipe.price / recipe.nutrition["Servings Per Recipe"]}</span>
+            <FavoritesButton item={recipe} />
+            <span>Total: ${(recipe.price * numSelected).toFixed(2)}</span>
+            <span>Per Serving: ${(recipe.price / recipe.nutrition["Servings Per Recipe"]).toFixed(2)}</span>
             <IntegerInput value={numSelected} onValueChange={handleIntegerChange}/>
             <button className="button-sub">Remove Some Ingredients</button>
-            <button className="button" onClick={(e) => handleAddRecipeToCart(recipe,e)}>Add To Cart</button>
+            <button className="button details-submit" onClick={(e) => handleAddRecipeToCart(recipe,e)}>Add To Cart</button>
           </div>
-          <button onClick={(e) => handleAddFavorite(recipe, e)} className="details-heart">
-            <FaHeart size={24} color="red" />
-          </button>
         </div>
       </div>
 

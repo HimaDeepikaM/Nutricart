@@ -36,7 +36,7 @@ export const NutriCartProvider = ({ children }) => {
   };
   // Remove item from favorites
   const removeFromFavorites = (item) => {
-    setFavorites((prevFavorites) => prevFavorites.filter(fav => fav !== item));
+    setFavorites((prevFavorites) => prevFavorites.filter(fav => fav.name !== item.name));
   };
 
   // CART ---------------------------------------------------------------------------

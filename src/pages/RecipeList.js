@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { useNutriCartContext } from "../context/NutriCartContext";
 import IntegerInput from "../components/IntegerInput";
-
+import { IoWarning } from "react-icons/io5";
+import FavoritesButton from "../components/FavoritesButton";
 
 const RecipeList = () => {
-    // const [numSelected, setNumSelected] = useState([]);
     const { addToCart, allegenMarkedRecipes } = useNutriCartContext();
     const navigate = useNavigate(); 
 
@@ -45,9 +45,10 @@ const RecipeList = () => {
 
     useEffect(() => {    
         setQuantities(allegenMarkedRecipes.reduce((acc, recipe) => {
-        acc[recipe.name] = 1; // initialize quantity from recipe or set to 0
-        return acc;
-        }, {}))
+            acc[recipe.name] = 1; // initialize quantity from recipe or set to 0
+            return acc;
+            }, {})
+        )
       }, [allegenMarkedRecipes]);
 
     return (
@@ -55,7 +56,10 @@ const RecipeList = () => {
             <div className="grocery-grid">
                 {allegenMarkedRecipes.map((recipe, index) => (
                     <div className="grocery-card" key={index} onClick={() => handleRecipeClick(recipe.name)}>
-                        <div className="grocery-name">{recipe.name}</div>
+                        <div className="grocery-name">
+                            {recipe.name}
+                            {recipe.containsAllergen ? <IoWarning size={24} color="orange" style={{ minWidth: "fit-content"}}/> : <div/>}
+                        </div>
                         <div className="grocery-price">
                             Price per serving: ${(recipe.price / recipe.nutrition["Servings Per Recipe"]).toFixed(2)}
                         </div>
@@ -71,6 +75,7 @@ const RecipeList = () => {
                             Add to Cart
                         </button>
                         {/* <div className="grocery-category">Category: {item.category}</div> */}
+                        <FavoritesButton item={recipe}/>
                     </div>
                 ))}
             </div>

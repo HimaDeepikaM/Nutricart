@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Grocery.css";
 import { useNutriCartContext } from "../context/NutriCartContext";
 import IntegerInput from "../components/IntegerInput";
+import FavoritesButton from "../components/FavoritesButton";
 
 const Grocery = ({searchTerm}) => {
   const [groceries, setGroceries] = useState([]);
@@ -71,6 +72,7 @@ const Grocery = ({searchTerm}) => {
             >
               Add to Cart
             </button>
+            <FavoritesButton item={item}/>
             <div className="grocery-category">Category: {item.category}</div>
           </div>
         ))}
