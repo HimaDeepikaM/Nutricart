@@ -26,7 +26,8 @@ function Login() {
       username: matchedUser.name,
       email: matchedUser.email,
       joinedDate: matchedUser.joinedDate || new Date().toISOString(), 
-      password: matchedUser.password
+      password: matchedUser.password,
+      allergens: matchedUser.allergens
     });
 
     alert(`Welcome, ${matchedUser.name}!`);

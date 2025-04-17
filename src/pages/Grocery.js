@@ -3,6 +3,7 @@ import "./Grocery.css";
 import { useNutriCartContext } from "../context/NutriCartContext";
 import IntegerInput from "../components/IntegerInput";
 import FavoritesButton from "../components/FavoritesButton";
+import { IoWarning } from "react-icons/io5";
 
 const Grocery = ({searchTerm}) => {
   const [groceries, setGroceries] = useState([]);
@@ -57,7 +58,10 @@ const Grocery = ({searchTerm}) => {
       <div className="grocery-grid">
         {filteredGroceries.map((item, index) => (
           <div className="grocery-card" key={index}>
-            <div className="grocery-name">{item.name}</div>
+            <div className="grocery-name">
+              {item.name}
+              {item.containsAllergen ? <IoWarning size={24} color="orange" style={{ minWidth: "fit-content"}}/> : <div/>}
+            </div>
             <div className="grocery-price">
               Price per {item.unit}: ${item.price.toFixed(2)}
             </div>

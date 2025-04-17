@@ -6,6 +6,7 @@ import IntegerInput from "../components/IntegerInput";
 import PieChart from "../components/PieChart";
 import { FaArrowLeft } from 'react-icons/fa';
 import FavoritesButton from "../components/FavoritesButton";
+import { IoWarning } from "react-icons/io5";
 
 const Recipe = () => {
   // IntegerInput
@@ -15,13 +16,13 @@ const Recipe = () => {
   }
 
   const { title } = useParams(); // Access the recipe Title from the URL
-  const { recipes, addToCart } = useNutriCartContext(); // Get the recipes from the context
+  const { allegenMarkedRecipes, addToCart } = useNutriCartContext(); // Get the recipes from the context
 
   // Convert title from URL format back to regular format
   const formattedTitle = decodeURIComponent(title.replace(/-/g, " "));
 
   // Find the recipe by name
-  const recipe = recipes.find((recipe) => recipe.name.toLowerCase() === formattedTitle.toLowerCase());
+  const recipe = allegenMarkedRecipes.find((recipe) => recipe.name.toLowerCase() === formattedTitle.toLowerCase());
 
   if (!recipe) {
     // Direct to Error Page
@@ -76,7 +77,10 @@ const Recipe = () => {
       <div className="details-header">
         <img src={recipe["image URL"]} alt={recipe.name} className="details-image"/>
         <div className="details-info">
-          <h2>{recipe.name}</h2>
+          <h2>
+            {recipe.name}
+            {recipe.containsAllergen ? <IoWarning size={24} color="orange" style={{ minWidth: "fit-content"}}/> : <div/>}
+          </h2>
           <span>{recipe.description}</span>
           <span>Serving Size: {recipe.nutrition["Servings Per Recipe"]}</span>
           <span>Calories Per Serving: {recipe.nutrition["Calories"]}</span>

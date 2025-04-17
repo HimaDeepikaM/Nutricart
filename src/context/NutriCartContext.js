@@ -13,7 +13,7 @@ export const NutriCartProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [allergens, setAllergens] = useState(["chicken"]);
+  const [allergens, setAllergens] = useState([]);
   const [allegenMarkedRecipes, setAllegenMarkedRecipes] = useState([]);
 
   const [user, setUser] = useState(null);
@@ -100,7 +100,8 @@ export const NutriCartProvider = ({ children }) => {
       lower.includes("fish") || lower.includes("salmon") ||
       lower.includes("tilapia") || lower.includes("shrimp") ||
       lower.includes("bacon") || lower.includes("mutton") ||
-      lower.includes("sausage") || lower.includes("ham")
+      lower.includes("sausage") || lower.includes("ham") ||
+      lower.includes("flounder")
     ) return "meat";
 
     if (
@@ -157,17 +158,29 @@ export const NutriCartProvider = ({ children }) => {
     allergens = allergens || [];
     // Mark if recipe has user's allergens
     const markRecipes = recipes.map((recipe) => {
-      const containsAllergen = !allergens ? allergens.some((allergen) =>
-        recipe.ingredients.some((ingredient) =>
-          ingredient.toLowerCase().includes(allergen.toLowerCase())
+      const containsAllergen = allergens.length > 0 ? 
+        allergens.some((allergen) => // Check for direct words
+          recipe.ingredients.some(([qty, unit, name]) =>
+            name.toLowerCase().includes(allergen.toLowerCase())
+          )
+        ) 
+        ||  
+        allergens.some((allergen) => // Check categories
+          recipe.ingredients.some(([qty, unit, name]) =>
+              categorizeIngredient(name.toLowerCase()) === allergen
+          )
         )
-      ) : false;
+        : false;
 
       const ingredientMap = new Map();
       recipe.ingredients.forEach(([qty, unit, name]) => {
         const cleanName = name.toLowerCase().split(",")[0].trim();
         if (!ingredientMap.has(cleanName)) {
-          const category = categorizeIngredient(cleanName);
+          const category = categorizeIngredient(cleanName.toLowerCase());
+
+          const containsAllergenIngredient =  allergens.some((allergen) => 
+            name.toLowerCase().includes(allergen.toLowerCase()) || categorizeIngredient(name.toLowerCase()) === allergen
+          )
 
           ingredientMap.set(cleanName, {
             name: cleanName.replace(/\b\w/g, l => l.toUpperCase()),
@@ -175,7 +188,8 @@ export const NutriCartProvider = ({ children }) => {
             price: parseFloat((Math.random() * 3 + 0.5).toFixed(2)),
             quantity: 0,
             category,
-            cleanName: cleanName
+            cleanName: cleanName,
+            containsAllergen: containsAllergenIngredient
           });
         }
       });
@@ -201,6 +215,7 @@ export const NutriCartProvider = ({ children }) => {
   // AUTHENTICATION ------------------------------------------------------------------
   const login = (userData) => {
     setUser(userData);
+    setAllergens(userData.allergens);
   };
 
   const logout = () => {

@@ -2,6 +2,7 @@ import React from "react";
 import { useNutriCartContext } from "../context/NutriCartContext";
 import IntegerInput from "../components/IntegerInput";
 import "./Cart.css";
+import { IoWarning } from "react-icons/io5";
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateCart } = useNutriCartContext();
@@ -33,7 +34,10 @@ const Cart = () => {
           <div className="cart-grid">
             {cartItems.map((item, index) => (
               <div className="cart-card" key={index}>
-                <h3 className="item-name">{item.name}</h3>
+                <h3 className="item-name">
+                  {item.name}
+                  {item.containsAllergen ? <IoWarning size={24} color="orange" style={{ minWidth: "fit-content"}}/> : <div/>}
+                </h3>
                 <p className="item-price">Price: ${item.price.toFixed(2)} per {item.unit}</p>
                 <IntegerInput value={item.quantity}
                   onValueChange={(newValue) => updateQuantity(index, newValue)} />

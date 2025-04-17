@@ -9,6 +9,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [userAllergens, setUserAllergens] = useState("");
 
   const validatePassword = (password) => {
     if (password.length < 8) return "Password must be at least 8 characters long.";
@@ -32,7 +33,8 @@ function Signup() {
       return;
     }
 
-    const newUser = { name, email, password };
+    const allergens = userAllergens != "" ? userAllergens.split(',').map((item) => item.trim()).filter(Boolean) : [];
+    const newUser = { name, email, password, allergens };
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     const alreadyExists = existingUsers.find((user) => user.email === email);
 
@@ -57,6 +59,7 @@ function Signup() {
           <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
           <input type="password" placeholder="Confirm Password" required onChange={(e) => setConfirmPassword(e.target.value)} />
           {passwordError && <p className="password-error">{passwordError}</p>}
+          <input type="allergens" placeholder="Comma Seperated List of Allergens" onChange={(e) => setUserAllergens(e.target.value)} />
           <button type="submit" className="create-account-btn">Sign Up</button>
         </form>
         <p>Already have an account? <Link to="/login" className="login-link">Login</Link></p>

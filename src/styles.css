@@ -136,7 +136,10 @@ input {
   gap: 10px;
 }
 
-.details-info {
+.details-info > h2 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
   padding-top: 20px;
 }
 
@@ -152,6 +155,7 @@ input {
   display: flex;
   text-align: left;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .details-nutrit-sec {
