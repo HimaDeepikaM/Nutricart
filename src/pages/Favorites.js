@@ -7,6 +7,15 @@ import "./Cart.css";
 import { IoWarning } from "react-icons/io5";
 import { FaHeart } from 'react-icons/fa';
 
+/**
+  Favorites Page
+    - Displays Recipes/Ingredients heald in NutriCartContext.favorties
+
+    User Operations:
+    - Remove From Favorites
+    - Increase/Decrease Quantity
+    - Add to cart
+ */
 function Favorites() {
     const { addToCart, favorites } = useNutriCartContext();
     const navigate = useNavigate(); 
@@ -22,6 +31,7 @@ function Favorites() {
         }));
     };
 
+    // Add selected item to cart, reset quantity on page
     const handleAddRecipeToCart = (item, e) => {
         // Stop the event from bubbling up to the parent div
         e.stopPropagation();
@@ -40,6 +50,7 @@ function Favorites() {
         alert("Item added to Cart!");
     };
 
+    // Open recipe detail page
     const handleRecipeClick = (item) => {
         if (item.ingredients) {
             // Navigate to the recipe page, with the title as part of the URL
@@ -47,6 +58,7 @@ function Favorites() {
         }
     };
 
+    // Update listed items if NutriCartContext.favorites changes
     useEffect(() => {    
         setQuantities(favorites.reduce((acc, item) => {
             acc[item.name] = 1; // initialize quantity from recipe or set to 0

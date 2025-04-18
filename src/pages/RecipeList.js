@@ -5,6 +5,15 @@ import IntegerInput from "../components/IntegerInput";
 import { IoWarning } from "react-icons/io5";
 import FavoritesButton from "../components/FavoritesButton";
 
+/**
+  Recipe List Page
+    - Displays Recipes NutriCartContext.allegenMarkedRecipes
+
+    User Operations:
+    - Add/Remove From Favorites
+    - Increase/Decrease Quantity
+    - Add to cart
+ */
 const RecipeList = () => {
     const { addToCart, allegenMarkedRecipes } = useNutriCartContext();
     const navigate = useNavigate(); 
@@ -20,6 +29,8 @@ const RecipeList = () => {
         }));
     };
 
+    
+    // Add item to cart, reset quantity of item on page
     const handleAddRecipeToCart = (item, e) => {
         // Stop the event from bubbling up to the parent div
         e.stopPropagation();
@@ -38,11 +49,13 @@ const RecipeList = () => {
         alert("Item added to Cart!");
     };
 
+    // Navigate to selected recipes detailed page
     const handleRecipeClick = (recipeTitle) => {
         // Navigate to the recipe page, with the title as part of the URL
         navigate(`/recipe/${encodeURIComponent(recipeTitle).replace(/ /g, "-")}`);
     };
 
+    // Update displayed list if NutriCartContext.allegenMarkedRecipes changes
     useEffect(() => {    
         setQuantities(allegenMarkedRecipes.reduce((acc, recipe) => {
             acc[recipe.name] = 1; // initialize quantity from recipe or set to 0

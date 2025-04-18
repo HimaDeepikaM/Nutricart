@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom"; // Import Link for navigation
+
+/**
+  Error Page
+    - Displays an error for when a non/existant page is reached
+    - Offers option to navigate back to dashboard
+ */
 function ErrorPage() {
     return (
         <div className="center-screen">

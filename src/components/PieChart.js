@@ -12,6 +12,15 @@ import {
 // Registering the required chart.js components
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
+/**
+    Pie Chart Component from react-chartjs-2
+      - Display related 'Carbs', 'Fats', 'Proteins', 'Fiber' in an animate Pie Chart
+
+    On Hover : 
+        - Displays related value
+
+    Input : Array containing, in order, ['Carbs', 'Fats', 'Proteins', 'Fiber']
+ */
 const PieChart = ({ data }) => {
   const chartData = {
     labels: ['Carbs', 'Fats', 'Proteins', 'Fiber'],

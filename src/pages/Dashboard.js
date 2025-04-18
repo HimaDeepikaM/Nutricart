@@ -4,10 +4,15 @@ import Grocery from "./Grocery";
 import RecipeList from "./RecipeList";
 import { GiCook, GiCarrot } from 'react-icons/gi'; // Chef hat, carrot
 
+/**
+  Dashboard Page
+    - Displays Either lists of recipes or ingredients depending on state of toggle (displayRecipe)
+ */
 const Dashboard = () => {
   const [displayRecipe, setDisplay] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // toggle recipe/ingredient view
   const handleToggle = () => {
     setDisplay(!displayRecipe);
   };

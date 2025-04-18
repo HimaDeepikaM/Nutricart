@@ -8,13 +8,22 @@ import { FaArrowLeft } from 'react-icons/fa';
 import FavoritesButton from "../components/FavoritesButton";
 import { IoWarning } from "react-icons/io5";
 
+/**
+  Recipe Details Page
+    - Display a Recipe correlating to the title of the page and NutriCartContext.allegenMarkedRecipes
+
+    User Operations:
+    - Add/Remove From Favorites
+    - Increase/Decrease Quantity
+    - Add to cart
+    - Open an Ingredients Add/Removal page (TODO)
+ */
 const Recipe = () => {
   // IntegerInput
   const [numSelected, setNumSelected] = useState(1);
   const handleIntegerChange = (newValue) => {
     setNumSelected(newValue);
   }
-
   const { title } = useParams(); // Access the recipe Title from the URL
   const { allegenMarkedRecipes, addToCart } = useNutriCartContext(); // Get the recipes from the context
 
@@ -52,8 +61,10 @@ const Recipe = () => {
     );
   };
 
+  // Data to Pass into Pie Chart
   const nutritional_pi = [recipe.nutrition["Total Carbohydrate"][0].replace(/\D/, ''), recipe.nutrition["Total Fat"][0].replace(/\D/, ''), recipe.nutrition["Protein"][0].replace(/\D/, ''), recipe.nutrition["Dietary Fiber"][0].replace(/\D/, '')];
 
+  // Add item to cart, reset quantity of item on page
   const handleAddRecipeToCart = (item, e) => {
     // Stop the event from bubbling up to the parent div
     e.stopPropagation();

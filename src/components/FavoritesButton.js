@@ -2,6 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useNutriCartContext } from "../context/NutriCartContext";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
+/**
+    Heart Icon + Add To / Remove From Favorites depending on the status of passed in item in favorites context.
+
+    On Click : 
+        - No downward propigation of click event
+        - toggles the items precense in the `favorite` state from `NutriCartContext`
+
+    Input : Recipe or Ingredient Card
+        Must have attributes:
+            .name
+            + those needed by Favorites.js
+ */
 const FavoritesButton = ({item}) => {
     const { favorites, addToFavorites, removeFromFavorites, } = useNutriCartContext();
     const [favorite, setFavorite] = useState(false);

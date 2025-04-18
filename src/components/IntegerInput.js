@@ -1,6 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
+/**
+    Integer input component
+      - increase/decrease related value by 1 with +/- buttons that
+      - keyboard input by clicking displayed value 
+
+    On Click : 
+        - No downward propigation of click event
+        - Clicking +/- buttons to change value by 1
+        - Clicking displayed number to manually change value via keybaord
+
+    Input : integer value and a state function for changing it in related contexts/react states\
+ */
 const IntegerInput = ({value, onValueChange }) => {
+  // Increase value by 1
   const increase = (e) => {
     // Stop the event from bubbling up to the parent div
     e.stopPropagation();
@@ -8,6 +21,7 @@ const IntegerInput = ({value, onValueChange }) => {
     
   };
 
+  // Decrease value by 1
   const decrease = (e) => {
     // Stop the event from bubbling up to the parent div
     e.stopPropagation();
@@ -16,6 +30,7 @@ const IntegerInput = ({value, onValueChange }) => {
     }
   };
 
+  // Set value to input value
   const handleChange = (e) => {
     // Stop the event from bubbling up to the parent div
     e.stopPropagation();
