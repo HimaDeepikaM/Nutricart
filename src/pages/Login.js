@@ -30,7 +30,7 @@ function Login() {
       allergens: matchedUser.allergens
     });
 
-    alert(`Welcome, ${matchedUser.name}!`);
+    alert(`Welcome, ${matchedUser.username}!`);
     navigate("/dashboard");
   };
 
