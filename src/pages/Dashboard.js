@@ -20,7 +20,8 @@ const Dashboard = () => {
         </h2>
         <input
         type="text"
-            placeholder="Search by name or category (e.g., 'spices', 'meat')"
+            
+            placeholder="Search by name or category (Example:spice/meat)"
             className="search-bar"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
